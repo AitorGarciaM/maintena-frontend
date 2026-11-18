@@ -1,0 +1,63 @@
+// =========================================
+// Maintena SCSS Mixins
+// =========================================
+
+@use 'variables' as *;
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin brand-surface {
+  background-color: $bg-brand;
+  color: $text-brand;
+}
+
+@mixin table-zebra-rows {
+  tr{
+    &:nth-child(even) {
+      background-color: $table-row-even;
+    }
+    &:nth-child(odd) {
+      background-color: $table-row-odd;
+    }
+  }
+}
+
+@mixin custom-button($bg-color: $bg-brand) {
+  background-color: $bg-color;
+  color: $text-brand;
+  border-radius: $btn-radius;
+  padding: 0.5rem 1rem;
+  font-family: $font-family;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+  @mixin searchbar-base {
+    border-radius: $searchbar-radius;
+    padding: 0.5rem 1rem;
+  }
+
+  $breakpoint-sm: 640px;
+  $breakpoint-md: 768px;
+  $breakpoint-lg: 1024px;
+
+  @mixin respond-to($breakpoint) {
+    @if $breakpoint == sm {
+      @media (min-width: $breakpoint-sm) { @content; }
+    }
+    @else if $breakpoint == md {
+      @media (min-width: $breakpoint-md) { @content; }
+    }
+    @else if $breakpoint == lg {
+      @media (min-width: $breakpoint-lg) { @content; }
+    }
+  }
