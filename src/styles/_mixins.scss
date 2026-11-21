@@ -41,6 +41,23 @@
   }
 }
 
+@mixin rounded-btn($bg-color: $bg-brand) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-color;
+  width: 50px;
+  height: 50px;
+  border-radius: $round;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
   @mixin searchbar-base {
     border-radius: $searchbar-radius;
     padding: 0.5rem 1rem;

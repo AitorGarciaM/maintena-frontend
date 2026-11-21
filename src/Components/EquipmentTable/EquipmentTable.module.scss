@@ -1,0 +1,50 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.tableWraper {
+  border-radius: $border-radius;
+  overflow: auto;
+  border: 2px solid $border-color;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-family: $font-family;
+  font-size: 0.9rem;
+}
+
+thead {
+  background-color: $bg-brand;
+  border-bottom: 2px solid $border-color;
+}
+
+td, th{
+  padding: 1rem;
+  text-align: center;
+  border: none;
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.82rem;
+  }
+}
+
+.row {
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+tbody {
+  @include table-zebra-rows
+}
+
+.editBtn {
+  @include custom-button($btn-bg);
+}
